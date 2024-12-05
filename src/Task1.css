@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+    grid-template-rows: repeat(2, 1fr);   /* 2 equal rows */
+    width: 100vw; /* Full viewport width */
+    height: calc(100vh - 60px); /* Full viewport height minus header height */
+  }
+  
+  .grid-container > div {
+    aspect-ratio: 1 / 1; /* Makes each grid item a square */
+  }
+  
+  
