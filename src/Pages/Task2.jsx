@@ -1,23 +1,16 @@
 import React from "react";
 import "../Styles/Header.css";
+import Navigation from "../components/Navigation";
 
 const Header = () => {
   return (
+    <>
     <header className="header">
       <div className="header-left">
         <div className="logo">
           <img src="Tabler.png" alt="Tabler Logo" />
           <span>tabler</span>
-        </div>
-        <nav className="nav-links">
-          <a href="#home">Home</a>
-          <a href="#interface">Interface</a>
-          <a href="#components">Components</a>
-          <a href="#pages">Pages</a>
-          <a href="#forms">Forms</a>
-          <a href="#gallery">Gallery</a>
-          <a href="#documentation">Documentation</a>
-        </nav>
+          </div>
       </div>
       <div className="header-right">
         <button className="source-code-btn">Source code</button>
@@ -27,7 +20,7 @@ const Header = () => {
         />
         <div className="user-profile">
           <img
-            src="profile-pic.jpg"
+            src="Profile.jpg"
             alt="User Profile"
             className="profile-pic"
           />
@@ -37,7 +30,13 @@ const Header = () => {
           </div>
         </div>
       </div>
+      
     </header>
+    
+    <Navigation />
+    <hr />
+    </>
+    
   );
 };
 
