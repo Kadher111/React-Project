@@ -1,6 +1,6 @@
 import React from "react";
 import Section from "../components/Section";
-import '../Task1.css'
+import '../Styles/Task1.css'
 
 export default function Task1() {
   return (
