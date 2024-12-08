@@ -52,20 +52,22 @@
   }
   
   .header-right {
-    display: flex;
-    align-items: center;
+      display: flex;
+      justify-content: flex-start; /* Align items to the start */
+      gap: 10px; /* Adds space between child elements */
+      align-items: center; /* Ensures vertical alignment */
   }
   
   .source-code-btn {
     background-color:#ffffff;
     color:  #0056b3;
     border-color: #0056b3;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.5rem;
     border-radius: 5px;
     cursor: pointer;
     font-size: 0.9rem;
     font-weight: bold;
-    margin-right: 1rem;
+    margin-right: 0.5rem;
   }
   
   .source-code-btn:hover {
@@ -75,6 +77,7 @@
   .user-profile {
     display: flex;
     align-items: center;
+    margin-left: 0.5rem;
   }
   
   .profile-pic {
