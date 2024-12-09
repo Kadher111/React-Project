@@ -2,7 +2,8 @@ import React from "react";
 import "../Styles/Task2.css";
 import Navigation from "../components/Navigation";
 import Dashboard from "../components/Dashboard";
-import GraphWithTable from "../components/chart"
+import GraphWithTable from "../components/chart";
+import DashboardCharts from "../components/DashboardCharts";
 
 const Header = () => {
   return (
@@ -40,7 +41,14 @@ const Header = () => {
         <Dashboard />
         <div className="below-header"></div>
       </div>
-      <GraphWithTable />
+      <div className="grid grid-cols-2">
+        <div>
+          <GraphWithTable />
+        </div>
+        <div>
+          <DashboardCharts />
+        </div>
+      </div>
     </>
   );
 };

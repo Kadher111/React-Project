@@ -82,18 +82,65 @@ const GraphWithTable = () => {
   ];
 
   return (
-    <div
-      style={{ padding: "50", backgroundColor: "white", marginLeft: "47px",
-        width: "47%", border: "1px solid lightgrey", fontFamily: "Arial, sans-serif" }}
-    >
-      <h1 style={{ fontsize: "24px", paddingTop: "10px" }}>Sales Data</h1>
+    // <div
+    //   style={{ padding: "50", backgroundColor: "white", marginLeft: "47px",
+    //     width: "47%", border: "1px solid lightgrey", fontFamily: "Arial, sans-serif" }}
+    // >
+    //   <h1 style={{ fontsize: "24px", paddingTop: "10px" }}>Sales Data</h1>
 
-      {/* Graph Section */}
+    //   {/* Graph Section */}
+    //   <div style={{ marginBottom: "40px" }}>
+    //     <Line data={data} options={options} />
+    //   </div>
+
+    //   {/* Table Section */}
+    //   <div>
+    //     <h2>Development Activity</h2>
+    //     <table
+    //       style={{
+    //         width: "100%",
+    //         borderCollapse: "collapse",
+    //         marginTop: "20px",
+    //       }}
+    //     >
+    //       <thead>
+    //         <tr>
+    //           <th style={styles.th}>User</th>
+    //           <th style={styles.th}>Commit</th>
+    //           <th style={styles.th}>Date</th>
+    //         </tr>
+    //       </thead>
+    //       <tbody>
+    //         {tableData.map((row, index) => (
+    //           <tr key={index} style={styles.tr}>
+    //             <td style={styles.td}>
+    //               <div style={{ display: "flex", alignItems: "center" }}>
+    //                 <img
+    //                   src={row.profilePic}
+    //                   alt="Profile"
+    //                   style={{
+    //                     width: "40px",
+    //                     height: "40px",
+    //                     borderRadius: "50%",
+    //                     marginRight: "10px",
+    //                   }}
+    //                 />
+    //                 {row.user}
+    //               </div>
+    //             </td>
+    //             <td style={styles.td}>{row.commit}</td>
+    //             <td style={styles.td}>{row.date}</td>
+    //           </tr>
+    //         ))}
+    //       </tbody>
+    //     </table>
+    //   </div>
+    // </div>
+
+    <div className="grid grid-rows-2">
       <div style={{ marginBottom: "40px" }}>
         <Line data={data} options={options} />
       </div>
-
-      {/* Table Section */}
       <div>
         <h2>Development Activity</h2>
         <table
