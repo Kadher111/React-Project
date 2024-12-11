@@ -1,23 +1,98 @@
-import React from "react";
-// import { Line } from "react-chartjs-2";
-// import {
-//   Chart as ChartJS,
-//   LineElement,
-//   CategoryScale,
-//   LinearScale,
-//   PointElement,
-//   Tooltip,
-//   Legend,
-// } from "chart.js";
+import React, { useRef, useEffect } from "react";
+import { Line } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+
+// Register Chart.js components
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 const GraphWithTable = () => {
+  const chartRef = useRef(null); // Reference to the chart instance
+
+  const data = {
+    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    datasets: [
+      {
+        label: "Commits",
+        data: [12, 19, 3, 5, 2, 3, 10],
+        borderColor: "rgba(54, 162, 235, 1)", // Line color
+        backgroundColor: "rgba(54, 162, 235, 0.2)", // Fallback color
+        tension: 0.4,
+        fill: true,
+      },
+    ],
+  };
+
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
+    scales: {
+      x: {
+        display: false,
+        grid: {
+          display: false,
+        },
+      },
+      y: {
+        display: false,
+        grid: {
+          display: false,
+        },
+      },
+    },
+  };
+
+  useEffect(() => {
+    const chart = chartRef.current;
+
+    if (chart) {
+      const { ctx, chartArea } = chart;
+      if (chartArea) {
+        // Create a two-tone gradient
+        const gradient = ctx.createLinearGradient(
+          0,
+          chartArea.bottom,
+          0,
+          chartArea.top
+        );
+        gradient.addColorStop(0, "rgba(54, 162, 235, 0.1)"); // Lighter tone at the bottom
+        gradient.addColorStop(0.5, "rgba(54, 162, 235, 0.4)"); // Darker tone at the center
+
+        // Dynamically set the gradient as the background color
+        chart.data.datasets[0].backgroundColor = gradient;
+        chart.update(); // Update the chart to apply the gradient
+      }
+    }
+  }, []);
+
   return (
     <div className="bg-white shadow rounded p-6">
       <h3 className="text-lg font-semibold mb-4">Development Activity</h3>
       <div>
-        {/* Replace this with a real chart (e.g., Chart.js or Recharts) */}
-        <div className="h-48 bg-blue-100 rounded mb-4 flex items-center justify-center">
-          <p>Graph Placeholder</p>
+        <div className="h-48 bg-white rounded mb-4">
+          {/* Chart component */}
+          <Line ref={chartRef} data={data} options={options} />
         </div>
       </div>
 

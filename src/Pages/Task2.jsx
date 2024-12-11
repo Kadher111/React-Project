@@ -104,7 +104,7 @@ const Dashboard = () => {
       <div className="pl-10 pr-10 py-6">
         {/* Top Metrics */}
 
-        <div className="grid grid-cols-6 gap-4 mb-6">
+        {/* <div className="grid grid-cols-6 gap-4 mb-6">
           {[
             { label: "New Tickets", value: "43", change: "+6%" },
             { label: "Closed Today", value: "17", change: "-3%" },
@@ -119,6 +119,35 @@ const Dashboard = () => {
             >
               <h4 className="text-sm font-medium">{item.label}</h4>
               <p className="stext-2xl font-bold">{item.value}</p>
+              <p
+                className={`absolute top-2 right-2 text-sm ${
+                  item.change.startsWith("+")
+                    ? "text-green-500"
+                    : "text-red-500"
+                }`}
+              >
+                {item.change}
+              </p>
+            </div>
+          ))}
+        </div> */}
+
+        <div className="grid grid-cols-6 gap-4 mb-6">
+          {[
+            { label: "New Tickets", value: "43", change: "+6%" },
+            { label: "Closed Today", value: "17", change: "-3%" },
+            { label: "New Replies", value: "7", change: "+9%" },
+            { label: "Followers", value: "27.3k", change: "+3%" },
+            { label: "Daily Earnings", value: "$95", change: "-2%" },
+            { label: "Products", value: "621", change: "-1%" },
+          ].map((item, index) => (
+            <div
+              key={index}
+              className="relative bg-white shadow rounded p-4 text-center border border-gray-300 
+              h-32 flex flex-col items-center justify-center"
+            >
+              <h4 className="text-sm font-medium">{item.label}</h4>
+              <p className="text-2xl font-bold">{item.value}</p>
               <p
                 className={`absolute top-2 right-2 text-sm ${
                   item.change.startsWith("+")
