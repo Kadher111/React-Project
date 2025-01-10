@@ -2,25 +2,36 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 
 function DataFetching() {
-  const [posts, setPosts] = useState([]);
+  const [post, setPost] = useState({});
+  const [id, setId] = useState(1);
+  const [idFromButton, setIdFromButton] = useState(1);
+
+  const clickHandler = () => {
+    setIdFromButton(id);
+  };
 
   useEffect(() => {
     axios
-      .get("https://jsonplaceholder.typicode.com/posts")
+      .get(`https://jsonplaceholder.typicode.com/posts/${idFromButton}`)
       .then((res) => {
         console.log(res);
-        setPosts(res.data);
+        setPost(res.data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [idFromButton]);
   return (
     <div>
       <div>
-        <ul style={{ listStyle: "disc", paddingLeft: "20px" }}>
-          {posts.map((post) => (
+        <input type="text" value={id} onChange={(e) => setId(e.target.value)} />
+        <button type="button" onClick={clickHandler}>
+          Submit
+        </button>
+        {/* <ul style={{ listStyle: "disc", paddingLeft: "20px" }}>
+          {post.map((post) => (
             <li key={post.id}>{post.title}</li>
           ))}
-        </ul>
+        </ul> */}
+        <div>{post.title}</div>
       </div>
     </div>
   );
