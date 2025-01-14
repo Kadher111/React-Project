@@ -1,15 +1,18 @@
 import React, { useContext } from "react";
-import { UserContext, AnimalContext } from "./ComponentA";
+import { CountContext } from "../App";
 
 function ComponentC() {
-  const user = useContext(UserContext); // Using useContext to consume the value
-  const animal = useContext(AnimalContext);
+  const countContext = useContext(CountContext);
   return (
     <div>
-      <div>
-        Your Name is {user} it is an {animal}
-      </div>{" "}
-      {/* Kadher will be displayed here */}
+      component C - {countContext.countState}...........
+      <button onClick={() => countContext.countDispatch("increment")}>
+        Increment
+      </button>
+      <button onClick={() => countContext.countDispatch("reset")}>reset</button>
+      <button onClick={() => countContext.countDispatch("decrement")}>
+        Decrement
+      </button>
     </div>
   );
 }

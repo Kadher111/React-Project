@@ -1,15 +1,15 @@
-import React from "react";
-import ComponentB from "./ComponentB";
-export const UserContext = React.createContext();
-export const AnimalContext = React.createContext();
+import React, {useContext} from "react";
+import { CountContext } from "../App";
+
 function ComponentA() {
+  const countContext = useContext(CountContext);
   return (
+    
     <div>
-      <UserContext.Provider value={"Kadher"}>
-        <AnimalContext.Provider value={"Lion"}>
-          <ComponentB />
-        </AnimalContext.Provider>
-      </UserContext.Provider>
+      component A - {countContext.countState}...........
+      <button onClick={() => countContext.countDispatch("increment")}>Increment</button>
+      <button onClick={() => countContext.countDispatch("reset")}>reset</button>
+      <button onClick={() => countContext.countDispatch("decrement")}>Decrement</button>
     </div>
   );
 }
